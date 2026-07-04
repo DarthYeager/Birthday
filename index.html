@@ -133,6 +133,100 @@ h2{
         transform:translateY(110vh) rotate(720deg);
     }
 }
+
+/* ===========================
+   Mobile & Tablet Responsive
+   =========================== */
+
+@media (max-width: 768px){
+
+    body{
+        height:auto;
+        min-height:100vh;
+        overflow-y:auto;
+        overflow-x:hidden;
+        padding:20px 12px;
+        align-items:flex-start;
+    }
+
+    .card{
+        width:100%;
+        max-width:100%;
+        padding:25px 18px;
+        border-radius:20px;
+        margin:20px auto;
+    }
+
+    h1{
+        font-size:36px;
+        line-height:1.2;
+    }
+
+    h2{
+        font-size:24px;
+        margin-bottom:18px;
+    }
+
+    .message{
+        font-size:17px;
+        line-height:1.7;
+    }
+
+    .btn{
+        width:100%;
+        font-size:18px;
+        padding:14px;
+        margin-top:25px;
+    }
+
+    .footer{
+        font-size:15px;
+        margin-top:20px;
+        line-height:1.5;
+    }
+
+    .balloon{
+        font-size:32px !important;
+    }
+
+    .heart{
+        font-size:20px !important;
+    }
+}
+
+/* Small phones */
+
+@media (max-width:480px){
+
+    body{
+        padding:15px 10px;
+    }
+
+    .card{
+        padding:20px 15px;
+    }
+
+    h1{
+        font-size:30px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+
+    .message{
+        font-size:16px;
+    }
+
+    .btn{
+        font-size:16px;
+        padding:12px;
+    }
+
+    .footer{
+        font-size:14px;
+    }
+}
 </style>
 </head>
 
@@ -194,9 +288,13 @@ Made with ❤️ for my wonderful best friend, Disha
 </div>
 
 <script>
+const isMobile = window.innerWidth <= 768;
+const balloonCount = isMobile ? 10 : 20;
+const heartCount = isMobile ? 12 : 25;
+const confettiCount = isMobile ? 60 : 150;
 
 // Balloons
-for(let i=0;i<20;i++){
+for(let i=0;i<balloonCount;i++){
     let b=document.createElement("div");
     b.className="balloon";
     b.innerHTML="🎈";
@@ -207,7 +305,7 @@ for(let i=0;i<20;i++){
 }
 
 // Hearts
-for(let i=0;i<25;i++){
+for(let i=0;i<heartCount;i++){
     let h=document.createElement("div");
     h.className="heart";
     h.innerHTML="❤";
@@ -220,7 +318,7 @@ for(let i=0;i<25;i++){
 // Confetti
 const colors=["#ffeb3b","#ff4081","#00e5ff","#69f0ae","#ff9800","#ffffff","#e040fb"];
 
-for(let i=0;i<150;i++){
+for(let i=0;i<confettiCount;i++){
     let c=document.createElement("div");
     c.className="confetti";
     c.style.left=Math.random()*100+"vw";
